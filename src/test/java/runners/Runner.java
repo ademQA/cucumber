@@ -8,10 +8,13 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-        plugin ="html:target/cucumber-reports.html",
+        plugin = {"html:target/cucumber-reports.html",
+                "json:target/json-reports/cucumber.json",
+                "junit:target/xml-report/cucumber.xml"
+        },
         features = "src/test/resources",
         glue = "stepdefinitions",
-        tags = "@wip",
+        tags = "@screen",
 
         dryRun = false
 
@@ -33,5 +36,17 @@ public class Runner {
 
     EGER eksik adim yoksa,
     bu durumu raporlamak icin Test PASSED isaretlenir
+
+    features = "src/test/resources",
+    glue = "stepdefinitions",
+
+    bu iki klasor birbiriyle ilisiklendirildigi icin
+    bu klasorlerin altindaki tum file'lar ve class'lar ilisiklidir
+    Cucumber da file ve class'lari 1-1 eslestirmek yerine
+    tumunu eslestirir
+
+    Eger siz spesifik olarak 1 feature'i,
+    belirlediginiz 1 stepdefinition class'i ile calismasini isterseniz
+    Runner class'inda bu eslesmeyi yapabilirsiniz
 
  */
