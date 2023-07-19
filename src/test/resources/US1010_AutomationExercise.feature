@@ -1,6 +1,5 @@
 Feature: US1010 Kullanici hesap olusturur
 
-  @wip
   Scenario: TC16 kullanici girdigi degerlerle hesap olusturabilmeli
 
     Given kullanici "automationUrl" anasayfaya gider
@@ -10,3 +9,4 @@ Feature: US1010 Kullanici hesap olusturur
     And user kisisel bilgilerini ve iletisim bilgilerini girer
     And user Create Account butonuna basar
     Then hesap olustugunu test edin
+    And sayfayi kapatir

@@ -19,7 +19,7 @@ public class AutomationExerciseStepdefinitions {
         autoExercisePage.ilkSignupButonu.click();
     }
     @Given("user Create an account bölümüne email adresi girer")
-    public void user_create_an_account_bölümüne_email_adresi_girer() {
+    public void user_create_an_account_bolumune_email_adresi_girer() {
 
 
         autoExercisePage.nameKutusu.sendKeys(faker.name().username());
@@ -29,8 +29,14 @@ public class AutomationExerciseStepdefinitions {
     public void sign_up_butonuna_basar() {
         autoExercisePage.signUpButonu.click();
     }
-    @Then("{string},{string},{string},{string},{string},{string},{string} bilgileri girer")
-    public void bilgileri_girer(String ad, String soyad, String string3, String string4, String string5, String string6, String string7) {
+    @Given("user kisisel bilgilerini ve iletisim bilgilerini girer")
+    public void user_kisisel_bilgilerini_ve_iletisim_bilgilerini_girer() {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.click(autoExercisePage.genderRadioButton)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys(faker.internet().password()).perform();
+
 
     }
     @Given("user Create Account butonuna basar")
