@@ -1,12 +1,11 @@
-Feature: US1010 Kullanici hesap olusturur
-
-  Scenario: TC16 kullanici girdigi degerlerle hesap olusturabilmeli
-
+Feature: AE Product VerifY
+  ​
+  Scenario: US_001 Ae Product Verify
     Given kullanici "automationUrl" anasayfaya gider
-    And user sign up linkine tiklar
-    And user Create an account bölümüne email adresi girer
-    And signUp butonuna basar
-    And user kisisel bilgilerini ve iletisim bilgilerini girer
-    And user Create Account butonuna basar
-    Then hesap olustugunu test edin
-    And sayfayi kapatir
+    Then Anasayfaya ulastigini dogrular
+    Then Product Sayfasina gider
+    Then Tum urunlerin goruntulendigini dogrular
+    Then Arama kismina Premium Polo T-shirt yazip search butonuna tiklar
+    Then Urun ayrintisini goruntuler
+    Then Urun adini dogrular
+    And  sayfayi kapatir

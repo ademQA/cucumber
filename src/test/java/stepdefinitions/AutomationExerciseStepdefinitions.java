@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import com.google.common.util.concurrent.FakeTimeLimiter;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pages.AutoExercisePage;
@@ -19,7 +20,7 @@ public class AutomationExerciseStepdefinitions {
         autoExercisePage.ilkSignupButonu.click();
     }
     @Given("user Create an account bölümüne email adresi girer")
-    public void user_create_an_account_bolumune_email_adresi_girer() {
+    public void user_create_an_account_bölümüne_email_adresi_girer() {
 
 
         autoExercisePage.nameKutusu.sendKeys(faker.name().username());
@@ -46,5 +47,44 @@ public class AutomationExerciseStepdefinitions {
     @Then("hesap olustugunu test edin")
     public void hesap_olustugunu_test_edin() {
 
+    }
+
+    @Then("Anasayfaya ulastigini dogrular")
+    public void anasayfayaUlastiginiDogrular() {
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        String expectedUrl="https://automationexercise.com/";
+        Assert.assertTrue(actualUrl.equals(expectedUrl));
+    }
+
+    @Then("Product Sayfasina gider")
+    public void productSayfasinaGider() {
+        autoExercisePage.products.click();
+
+    }
+
+    @Then("Tum urunlerin goruntulendigini dogrular")
+    public void tumUrunlerinGoruntulendiginiDogrular() {
+        Assert.assertTrue(autoExercisePage.allproducts.isDisplayed());
+
+
+    }
+
+    @Then("Arama kismina Premium Polo T-shirt yazip search butonuna tiklar")
+    public void aramaKisminaPremiumPoloTShirtYazipSearchButonunaTiklar() {
+        autoExercisePage.searchBox.sendKeys("Premium Polo T-shirt");
+        autoExercisePage.searchButton.click();
+    }
+
+    @Then("Urun ayrintisini goruntuler")
+    public void urunAyrintisiniGoruntuler() {
+        autoExercisePage.productview.click();
+
+    }
+
+    @Then("Urun adini dogrular")
+    public void urunAdiniDogrular() {
+        String actualName=autoExercisePage.productName.getText();
+        String expectedName="Premium Polo T-Shirts";
+        Assert.assertTrue(actualName.equals(expectedName));
     }
 }

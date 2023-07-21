@@ -1,6 +1,5 @@
 Feature: US1011 Excel otomasyonu
 
-  @wip
   Scenario: TC17 kullanici excel dosyasini testlerde kullanabilmeli
 
     Given kullanici excel dosyasini kullanabilecegi ayarlari yapar
